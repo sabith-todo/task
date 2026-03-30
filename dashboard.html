@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Farming Monitor Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+   <link rel="icon" href="/img/2.jpeg" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <script style="margin-top: 800px;;">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'ta,en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'google_translate_element'
+  );
+}
+</script>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-seedling"></i>
+        </div>
+        <div>
+          <h2>SMART FARM PRO</h2>
+          <p>AI Crop Intelligence</p>
+        </div>
+      </div>
+
+      <nav class="side-links">
+        <a href="#" class="active"><i class="fa-solid fa-house"></i><span>Overview</span></a>
+        <a href="#"><i class="fa-solid fa-chart-line"></i><span>Dashboard</span></a>
+        <a href="liveWeather.html"><i class="fa-solid fa-cloud-sun"></i><span>Live Weather</span></a>
+        <a href="air-temp-stream.html"><i class="fa-solid fa-temperature-half"></i><span>Air Temp Stream</span></a>
+        <a href="#"><i class="fa-solid fa-chart-pie"></i><span>Analytics</span></a>
+        <a href="#"><i class="fa-solid fa-map-location-dot"></i><span>Farm Map</span></a>
+        <a href="#"><i class="fa-solid fa-layer-group"></i><span>Modules</span></a>
+        <a href="#"><i class="fa-solid fa-bell"></i><span>Alerts</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="system-card">
+          <p>System Health</p>
+          <h4>Stable</h4>
+          <span>All sensors responding</span>
+        </div>
+
+        <a href="index.html" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-panel">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div>
+          <p class="welcome">SMART FARMING MONITOR</p>
+          <h1>Advanced Dashboard Control Center</h1>
+          <p class="top-desc">
+            Monitor irrigation, field climate, soil condition, crop recommendation,
+            and live farm analytics in one smart platform.
+          </p>
+        </div>
+
+        <div class="top-actions">
+          <button class="action-btn">
+            <i class="fa-solid fa-file-export"></i>
+            Export Data
+          </button>
+          <button class="action-btn green">
+            <i class="fa-solid fa-broadcast-tower"></i>
+            Live Mode
+          </button>
+        </div>
+      </header>
+
+      <!-- Status highlight -->
+      <section class="status-banner">
+        <div class="status-badge">
+          <i class="fa-solid fa-bolt"></i>
+          Real-Time Advisory Active
+        </div>
+        <div class="status-content">
+          <h3>Immediate Irrigation Recommended</h3>
+          <p>
+            Soil moisture is below the ideal level and the field is entering a dry
+            atmospheric cycle. Water scheduling should begin soon.
+          </p>
+        </div>
+      </section>
+
+      <!-- Metrics -->
+      <section class="metrics-grid">
+        <div class="metric-card green-card">
+          <div class="metric-top">
+            <p class="metric-label">Soil Status</p>
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3>LOW SOIL<br />MOISTURE</h3>
+          <span class="metric-bottom">Field condition needs attention</span>
+        </div>
+
+        <div class="metric-card blue-card">
+          <div class="metric-top">
+            <p class="metric-label">Humidity</p>
+            <i class="fa-solid fa-water"></i>
+          </div>
+          <h3>13%</h3>
+          <span class="metric-bottom">Dry atmosphere</span>
+        </div>
+
+        <div class="metric-card yellow-card">
+          <div class="metric-top">
+            <p class="metric-label">Water Advice</p>
+            <i class="fa-solid fa-droplet"></i>
+          </div>
+          <h3>Water Now</h3>
+          <span class="metric-bottom">Immediate irrigation</span>
+        </div>
+
+        <div class="metric-card red-card">
+          <div class="metric-top">
+            <p class="metric-label">Motor Status</p>
+            <i class="fa-solid fa-power-off"></i>
+          </div>
+          <h3>OFF</h3>
+          <span class="metric-bottom">Not running</span>
+        </div>
+
+        <div class="metric-card purple-card">
+          <div class="metric-top">
+            <p class="metric-label">Suggested Crop</p>
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h3>Millets</h3>
+          <span class="metric-bottom">Best match crop</span>
+        </div>
+      </section>
+
+      <!-- Overview Row -->
+      <section class="dashboard-grid">
+        <div class="panel large-panel">
+          <div class="panel-header">
+            <div>
+              <h3>Farm Area Monitoring</h3>
+              <p>Live zone activity and field sensor points</p>
+            </div>
+            <span>Map Preview</span>
+          </div>
+
+          <div class="map-box">
+            <div class="map-overlay-grid"></div>
+            <div class="map-marker marker-1"></div>
+            <div class="map-marker marker-2"></div>
+            <div class="map-marker marker-3"></div>
+            <div class="map-marker marker-4"></div>
+            <div class="map-center-card">
+              <h4>Zone A</h4>
+              <p>Active Monitoring</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel side-panel">
+          <div class="panel-header">
+            <div>
+              <h3>Quick Summary</h3>
+              <p>Latest environmental readings</p>
+            </div>
+          </div>
+
+          <div class="summary-list">
+            <div class="summary-item"><span>Temperature</span><strong>34.7°C</strong></div>
+            <div class="summary-item"><span>Rainfall</span><strong>4.84 mm</strong></div>
+            <div class="summary-item"><span>Pressure</span><strong>1099 hPa</strong></div>
+            <div class="summary-item"><span>Weather</span><strong>Clear</strong></div>
+            <div class="summary-item"><span>Sunrise</span><strong>06:32 am</strong></div>
+            <div class="summary-item"><span>Sunset</span><strong>06:22 pm</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Weather + Advisory -->
+      <section class="double-grid">
+        <div class="panel weather-panel">
+          <div class="panel-header">
+            <div>
+              <h3>Weather Intelligence</h3>
+              <p>Forecast analytics overview</p>
+            </div>
+            <span>5-Day Trend</span>
+          </div>
+
+          <div class="fake-line-chart">
+            <div class="line line-pink"></div>
+            <div class="line line-cyan"></div>
+            <div class="line line-green"></div>
+            <div class="chart-labels">
+              <span>Mon</span>
+              <span>Tue</span>
+              <span>Wed</span>
+              <span>Thu</span>
+              <span>Fri</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel advisory-panel">
+          <div class="panel-header">
+            <div>
+              <h3>Smart Advisory</h3>
+              <p>Crop and irrigation recommendation</p>
+            </div>
+          </div>
+
+          <div class="advisory-card-list">
+            <div class="advisory-item">
+              <i class="fa-solid fa-droplet"></i>
+              <div>
+                <h4>Irrigation Advice</h4>
+                <p>Start watering within the next 2 hours.</p>
+              </div>
+            </div>
+
+            <div class="advisory-item">
+              <i class="fa-solid fa-cloud-rain"></i>
+              <div>
+                <h4>Rain Alert</h4>
+                <p>No strong rainfall prediction in the current cycle.</p>
+              </div>
+            </div>
+
+            <div class="advisory-item">
+              <i class="fa-solid fa-seedling"></i>
+              <div>
+                <h4>Crop Suitability</h4>
+                <p>Millets and groundnut are currently better suited.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Weather -->
+      <section class="live-weather-grid">
+        <div class="live-card big-temp-card">
+          <div class="time-row">
+            <span>2:24:18 pm</span>
+            <span class="live-dot">LIVE</span>
+          </div>
+          <div class="sun-icon">
+            <i class="fa-solid fa-sun"></i>
+          </div>
+          <h2>34.7°C</h2>
+          <p>Clear Sky • Dry Conditions</p>
+        </div>
+
+        <div class="live-card small-weather-card"><p>Humidity</p><h3>22%</h3></div>
+        <div class="live-card small-weather-card"><p>Rainfall</p><h3>4.84 mm</h3></div>
+        <div class="live-card small-weather-card"><p>Pressure</p><h3>1099 hPa</h3></div>
+        <div class="live-card small-weather-card"><p>Weather</p><h3>Clear</h3></div>
+        <div class="live-card small-weather-card"><p>Sunrise</p><h3>06:32 am</h3></div>
+        <div class="live-card small-weather-card"><p>Sunset</p><h3>06:22 pm</h3></div>
+      </section>
+
+      <!-- Forecast -->
+      <section class="forecast-strip">
+        <div class="forecast-card"><span>Mon</span><strong>34.7°C</strong></div>
+        <div class="forecast-card"><span>Tue</span><strong>34.3°C</strong></div>
+        <div class="forecast-card"><span>Wed</span><strong>36.8°C</strong></div>
+        <div class="forecast-card"><span>Thu</span><strong>25.8°C</strong></div>
+        <div class="forecast-card"><span>Fri</span><strong>24.8°C</strong></div>
+      </section>
+
+      <!-- Stream -->
+      <section class="panel stream-panel">
+        <div class="panel-header">
+          <div>
+            <h3>Air Temp Live Stream</h3>
+            <p>Real-time temperature movement</p>
+          </div>
+          <span>Sensor Sync</span>
+        </div>
+
+        <div class="stream-grid">
+          <div class="stream-graph">
+            <div class="stream-line"></div>
+          </div>
+
+          <div class="stream-info">
+            <h2>36.79°C</h2>
+            <p>Current temperature trend is stable with slight heat increase.</p>
+
+            <div class="temp-progress-wrap">
+              <div class="temp-progress">
+                <div class="temp-fill"></div>
+              </div>
+              <span>Heat Load 68%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Analytics -->
+      <section class="analytics-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Trend Analysis</h3>
+              <p>Performance movement</p>
+            </div>
+          </div>
+          <div class="fake-line-chart small-chart">
+            <div class="line line-pink"></div>
+            <div class="line line-cyan"></div>
+            <div class="line line-yellow"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Farm Performance Comparison</h3>
+              <p>Field section productivity</p>
+            </div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-wrap"><div class="bar pink" style="height: 70%;"></div><span>A</span></div>
+            <div class="bar-wrap"><div class="bar cyan" style="height: 52%;"></div><span>B</span></div>
+            <div class="bar-wrap"><div class="bar green" style="height: 38%;"></div><span>C</span></div>
+            <div class="bar-wrap"><div class="bar purple" style="height: 88%;"></div><span>D</span></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Crop Distribution</h3>
+              <p>Current plantation ratio</p>
+            </div>
+          </div>
+          <div class="donut-chart">
+            <div class="donut-inner">68%</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="google_translate_element"></div>
+
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+<script src="js/tamil-translate.js"></script>
+</html>

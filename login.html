@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSmart Login</title>
+  <link rel="stylesheet" href="css/login.css" />
+ <link rel="icon" href="/img/2.jpeg" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <script style="margin-top: 800px;;">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'ta,en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'google_translate_element'
+  );
+}
+</script>
+</head>
+
+<body class="login-page">
+
+  <div class="bg-blur blur-one"></div>
+  <div class="bg-blur blur-two"></div>
+
+  <div class="login-wrapper">
+    
+    <!-- Left branding section -->
+    <div class="login-left">
+      <div class="overlay"></div>
+
+      <div class="left-content">
+        <div class="brand-badge">
+          <i class="fa-solid fa-seedling"></i>
+          <span>AI-Powered Smart Crop Advisory System</span>
+        </div>
+
+        <h1>Welcome Back to <span>AgriSmart</span></h1>
+        <p>
+          Experience the future of digital farming with an intelligent platform
+          that helps monitor crop conditions, irrigation support, weather updates,
+          and smart agricultural recommendations in one advanced dashboard.
+        </p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <i class="fa-solid fa-cloud-sun-rain"></i>
+            <div>
+              <h3>Live Weather Insights</h3>
+              <p>Track climate and field conditions to make better crop decisions.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <div>
+              <h3>Farm Performance Analytics</h3>
+              <p>View growth trends, irrigation details, and monitoring reports clearly.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <i class="fa-solid fa-microchip"></i>
+            <div>
+              <h3>Smart Advisory Support</h3>
+              <p>Get AI-based suggestions for irrigation, crop planning, and soil care.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="left-stats">
+          <div class="stat-box">
+            <h2>24/7</h2>
+            <p>Monitoring</p>
+          </div>
+          <div class="stat-box">
+            <h2>95%</h2>
+            <p>Smart Support</p>
+          </div>
+          <div class="stat-box">
+            <h2>08+</h2>
+            <p>Farm Modules</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right form section -->
+    <div class="login-box">
+      <div class="top-strip"></div>
+
+      <div class="form-top">
+        <div class="form-badge">
+          <i class="fa-solid fa-user-shield"></i>
+          <span>Secure Access Portal</span>
+        </div>
+        <h2>Sign In</h2>
+        <p>Login to continue your smart farming journey.</p>
+      </div>
+
+      <form onsubmit="return loginUser()" class="login-form">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <div class="input-box">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="username" placeholder="Enter your username" required />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email</label>
+          <div class="input-box">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="email" placeholder="Enter your email" required />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <div class="input-box password-box">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" placeholder="Enter your password" minlength="8" required />
+            <button type="button" class="toggle-password" onclick="togglePassword()">
+              <i class="fa-solid fa-eye" id="toggleIcon"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="role">Role</label>
+          <div class="input-box">
+            <i class="fa-solid fa-user-tag"></i>
+            <select id="role" required>
+              <option value="">Select Role</option>
+              <option value="admin">Admin</option>
+              <option value="farmer">Farmer</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="remember-row">
+          <label class="remember-me">
+            <input type="checkbox" />
+            <span>Remember Me</span>
+          </label>
+
+          <a href="forgot.html" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-btn">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          Login
+        </button>
+
+        <div class="divider">
+          <span>Smart access to your farm dashboard</span>
+        </div>
+
+        <div class="quick-info">
+          <div class="quick-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Secure Login</span>
+          </div>
+          <div class="quick-card">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Fast Access</span>
+          </div>
+          <div class="quick-card">
+            <i class="fa-solid fa-leaf"></i>
+            <span>Agri Intelligence</span>
+          </div>
+        </div>
+
+        <div class="links">
+          <p>New user? <a href="create.html">Create an account</a></p>
+          <a href="index.html" class="back-home">Back to Home</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="google_translate_element"></div>
+
+
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="js/tamil-translate.js"></script>
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById("password");
+      const toggleIcon = document.getElementById("toggleIcon");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.className = "fa-solid fa-eye-slash";
+      } else {
+        passwordInput.type = "password";
+        toggleIcon.className = "fa-solid fa-eye";
+      }
+    }
+
+    function loginUser() {
+      let user = document.getElementById("username").value.trim();
+      let pass = document.getElementById("password").value.trim();
+      let role = document.getElementById("role").value;
+
+      if (user === "admin" && pass === "admin123" && role === "admin") {
+        alert("Admin login successful");
+        window.location.href = "dashboard.html";
+        return false;
+      }
+
+      if (user === "farmer" && pass === "farmer123" && role === "farmer") {
+        alert("Farmer login successful");
+        window.location.href = "dashboard.html";
+        return false;
+      }
+
+      alert("Invalid login details");
+      return false;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Weather - Smart Farm Pro</title>
+  <link rel="stylesheet" href="css/liveWeather.css" />
+   <link rel="icon" href="/img/2.jpeg" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <script style="margin-top: 800px;;">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'ta,en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'google_translate_element'
+  );
+}
+</script>
+</head>
+<body>
+  <div class="weather-app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="brand">
+          <div class="brand-icon">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <div>
+            <h2>SMART FARM PRO</h2>
+            <p>Live Weather Intelligence</p>
+          </div>
+        </div>
+
+        <nav class="side-links">
+          <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
+          <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i><span>Dashboard</span></a>
+          <a href="liveWeather.html" class="active"><i class="fa-solid fa-cloud"></i><span>Live Weather</span></a>
+          <a href="air-temp-stream.html"><i class="fa-solid fa-map-location-dot"></i><span>Air Temp Stream</span></a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="system-card">
+          <p>Weather Sync</p>
+          <h4>Active</h4>
+          <span>Live climate feed connected</span>
+        </div>
+
+        <a href="index.html" class="logout-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back Home
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="small-label">REAL-TIME WEATHER UI</p>
+          <h1>Live Weather Monitor</h1>
+          <p class="top-desc">
+            Monitor field temperature, rainfall, humidity, pressure, crop advice,
+            and weather alerts in a premium real-time dashboard.
+          </p>
+        </div>
+
+        <div class="top-right">
+          <div class="clock-card">
+            <i class="fa-regular fa-clock"></i>
+            <span id="liveTime">--:--:--</span>
+          </div>
+          <button class="refresh-btn" id="refreshBtn">
+            <i class="fa-solid fa-rotate-right"></i>
+            Refresh Data
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero weather section -->
+      <section class="hero-weather-card">
+        <div class="hero-left">
+          <div class="status-badge">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Farm Zone A • Demo Region</span>
+          </div>
+
+          <div class="hero-main">
+            <div class="weather-icon-box" id="heroIcon">
+              <i class="fa-solid fa-sun"></i>
+            </div>
+
+            <div class="hero-main-info">
+              <h2 id="mainTemp">34.7°C</h2>
+              <p id="mainCondition">Clear Sky</p>
+              <span id="mainDesc">Dry atmosphere and stable visibility</span>
+            </div>
+          </div>
+
+          <div class="hero-tags">
+            <span><i class="fa-solid fa-temperature-half"></i> Heat Level: Moderate</span>
+            <span><i class="fa-solid fa-wind"></i> Wind Flow: Smooth</span>
+            <span><i class="fa-solid fa-droplet"></i> Moisture Support: Low</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="mini-summary">
+            <div class="mini-box">
+              <p>Humidity</p>
+              <h3 id="humidityValue">22%</h3>
+            </div>
+            <div class="mini-box">
+              <p>Pressure</p>
+              <h3 id="pressureValue">1099 hPa</h3>
+            </div>
+            <div class="mini-box">
+              <p>Rainfall</p>
+              <h3 id="rainValue">4.84 mm</h3>
+            </div>
+            <div class="mini-box">
+              <p>Wind Speed</p>
+              <h3 id="windValue">12 km/h</h3>
+            </div>
+          </div>
+
+          <div class="hero-side-note">
+            <h4>Weather Impact</h4>
+            <p>
+              Current climate indicates dry-field support. Irrigation planning
+              should be monitored carefully for better crop balance.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stat cards -->
+      <section class="weather-stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue">
+            <i class="fa-solid fa-sun"></i>
+          </div>
+          <div>
+            <p>Sunrise</p>
+            <h3 id="sunriseValue">06:32 AM</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon orange">
+            <i class="fa-solid fa-moon"></i>
+          </div>
+          <div>
+            <p>Sunset</p>
+            <h3 id="sunsetValue">06:22 PM</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <div>
+            <p>Crop Advice</p>
+            <h3 id="cropAdvice">Millets</h3>
+          </div>
+
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon red">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div>
+            <p>Alert</p>
+            <h3 id="alertValue">Water Now</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Forecast and highlights -->
+      <section class="content-grid">
+        <div class="panel forecast-panel">
+          <div class="panel-header">
+            <div>
+              <h3>5-Day Live Forecast</h3>
+              <p>Prebuilt dynamic weather preview</p>
+            </div>
+            <span>Forecast Feed</span>
+          </div>
+
+          <div class="forecast-row" id="forecastRow"></div>
+        </div>
+
+        <div class="panel highlights-panel">
+          <div class="panel-header">
+            <div>
+              <h3>Weather Highlights</h3>
+              <p>Farm condition summary</p>
+            </div>
+            <span>AI Notes</span>
+          </div>
+
+          <div class="highlight-list">
+            <div class="highlight-item">
+              <span>Temperature Status</span>
+              <strong id="tempStatus">Warm and stable</strong>
+            </div>
+            <div class="highlight-item">
+              <span>Humidity Impact</span>
+              <strong id="humidityStatus">Dry condition</strong>
+            </div>
+            <div class="highlight-item">
+              <span>Rain Outlook</span>
+              <strong id="rainStatus">Low rainfall support</strong>
+            </div>
+            <div class="highlight-item">
+              <span>Field Suggestion</span>
+              <strong id="fieldSuggestion">Use controlled irrigation</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trend and notes -->
+      <section class="bottom-grid">
+        <div class="panel chart-panel">
+          <div class="panel-header">
+            <div>
+              <h3>Temperature Trend</h3>
+              <p>Live stream style weather graph</p>
+            </div>
+            <span>Weekly Variation</span>
+          </div>
+
+          <div class="chart-box">
+            <div class="chart-line chart-line-pink"></div>
+            <div class="chart-line chart-line-cyan"></div>
+            <div class="chart-line chart-line-green"></div>
+            <div class="chart-labels">
+              <span>Mon</span>
+              <span>Tue</span>
+              <span>Wed</span>
+              <span>Thu</span>
+              <span>Fri</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel notes-panel">
+          <div class="panel-header">
+            <div>
+              <h3>Smart Weather Notes</h3>
+              <p>System-generated insights</p>
+            </div>
+            <span>Field Advice</span>
+          </div>
+
+          <ul class="notes-list" id="notesList">
+            <li>Dry conditions favor low-water crops.</li>
+            <li>Controlled irrigation is recommended for field balance.</li>
+            <li>Current weather supports millet-type farming.</li>
+            <li>Heat remains manageable for daytime operations.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="google_translate_element"></div>
+
+
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script src="live-weather.js"></script>
+</body>
+<script src="js/tamil-translate.js"></script>
+</html>
